@@ -8,9 +8,9 @@ $db = miniOrm\Db::inst();// creamos el objeto
 $cod=$_GET['cod'];
 $cod=$_GET['cod'];
 
-$eliminar_nota=$db->UPDATE('notas', array("cod_nota='$cod'"));
+$eliminar_nota=$db->UPDATE('notas',  array('finalizado'=>'1'), array("cod_nota='$cod'"));
 if($eliminar_nota > 0){		
-		echo "<script>alert('Error al Eliminar');window.location.replace('index.php');</script>";
+		echo "<script>alert('Error al Eactualizar');window.location.replace('index.php');</script>";
 		}
 		else{
 		echo "<script>window.location.replace('index.php');</script>";

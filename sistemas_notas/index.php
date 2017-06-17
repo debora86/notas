@@ -47,10 +47,14 @@
 </form>
 		    
 			<script>function eliminar() {
-                                            var eliminar= confirm("Realmente quieres eliminar este establecimiento?"); 
+                                            var eliminar= confirm("Realmente quieres eliminar la nota?"); 
                                               return eliminar;
                                             } </script>
 				
+		<script>function finalizar() {
+                                            var finalizar= confirm("Realmente quieres finalizar la nota?"); 
+                                              return finalizar;
+                                            } </script>
 				<table class="table">
 				<thead>
 					<tr>
@@ -85,7 +89,7 @@
 							<?php echo  $consultar[$i]['fecha_crea'];?>
 						</td>
 						<td>
-						<a class="glyphicon glyphicon-ok" href="actualizar.php?cod=<?php echo $consultar [$i]['cod_nota'];?>"></a>
+						<a class="glyphicon glyphicon-ok" href="actualizar.php?cod=<?php echo $consultar [$i]['cod_nota'];?>"onclick="return finalizar()"></a>
 <a href="eliminar.php?cod=<?php echo $consultar [$i]['cod_nota'];?>" class="glyphicon glyphicon-trash" onclick="return eliminar()" ></a>
 						</td>
 					</tr>

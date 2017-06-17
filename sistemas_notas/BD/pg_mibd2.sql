@@ -48,7 +48,8 @@ CREATE TABLE notas (
     cod_nota integer NOT NULL,
     det_nota character varying(500) NOT NULL,
     fecha_crea date,
-    bool_eliminado character varying(10)
+    bool_eliminado character varying(10),
+    finalizado integer DEFAULT 0
 );
 
 
@@ -114,12 +115,12 @@ ALTER TABLE ONLY notas ALTER COLUMN cod_nota SET DEFAULT nextval('notas_cod_nota
 -- Data for Name: notas; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY notas (cod_nota, det_nota, fecha_crea, bool_eliminado) FROM stdin;
-2	otro mas	2017-06-16	false
-3	y otro nota mas	2017-06-16	false
-1	caracoles	2017-06-16	true
-5	vamos a ver	2017-06-17	false
-6	una cracoles	2017-06-17	false
+COPY notas (cod_nota, det_nota, fecha_crea, bool_eliminado, finalizado) FROM stdin;
+2	otro mas	2017-06-16	false	0
+3	y otro nota mas	2017-06-16	false	0
+1	caracoles	2017-06-16	true	0
+5	vamos a ver	2017-06-17	false	0
+6	una cracoles	2017-06-17	false	0
 \.
 
 
