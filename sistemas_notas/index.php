@@ -15,7 +15,7 @@
            <div class="container">
 	     <div class="row">
 	       <div class="col-lg-12">
-	          <h1>Sistema de Notas<small>Todo</small></h1>
+	          <h1>Sistema de Notas<small></small></h1>
 	       </div>
 			        			
 	    </div>
@@ -30,15 +30,15 @@
 	 </div>
 		<div class="col-lg-4">
 			<h3 class="text-center">
-				SISTEMA DE NOTAS
+				Todo
 			</h3>
 			
 			    <form action="insert.php" method="POST" role="form">
 	<legend></legend>
 
 	<div class="form-group">
-		<label for="">label</label>
-		<input type="text" class="form-control" name="det_nota" placeholder="Input field">
+		<label for="">Ingrese Nota</label>
+		<input type="text" class="form-control" name="det_nota" placeholder="Ingrese texto">
 	</div>
 
 	
@@ -75,7 +75,8 @@
 				$db = miniOrm\Db::inst();// creamos el objeto
 				
 				$consultar=$db->consultar('*','notas',array("bool_eliminado='false'") );
-                                for ($i=0; $i < count($consultar) ; $i++) {?>
+                                for ($i=0; $i < count($consultar) ; $i++) {
+					?>
 			     
 			
 				<tbody>
@@ -83,25 +84,25 @@
 					<tr class="active">
 						
 						<td>
+						
 						<?php echo $consultar[$i]['det_nota'];?>
 						</td>
 						<td>
-							<?php echo  $consultar[$i]['fecha_crea'];?>
+						<?php echo  $consultar[$i]['fecha_crea'];?>
 						</td>
 						<td>
-						<a class="glyphicon glyphicon-ok" href="actualizar.php?cod=<?php echo $consultar [$i]['cod_nota'];?>"onclick="return finalizar()"></a>
-<a href="eliminar.php?cod=<?php echo $consultar [$i]['cod_nota'];?>" class="glyphicon glyphicon-trash" onclick="return eliminar()" ></a>
-						</td>
-					</tr>
-					
-						<?php }?>
-					
+<?php if ($consultar[$i]['finalizado']==0){?>					
+<a class="glyphicon glyphicon-ok" href="actualizar.php?cod=<?php echo $consultar [$i]['cod_nota'];?>" title="finalizar" onclick="return finalizar()"></a>
+<?php }?>
+<a href="eliminar.php?cod=<?php echo $consultar [$i]['cod_nota'];?>" class="glyphicon glyphicon-trash" title="Eliminar" onclick="return eliminar()"></a>
+
+					</td>
+					 <?php }?>
+					</tr>					
 				</tbody>
 			</table>
-	
 	</div>
      </div>
-
     
   </body>
 </html>

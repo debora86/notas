@@ -116,11 +116,13 @@ ALTER TABLE ONLY notas ALTER COLUMN cod_nota SET DEFAULT nextval('notas_cod_nota
 --
 
 COPY notas (cod_nota, det_nota, fecha_crea, bool_eliminado, finalizado) FROM stdin;
-2	otro mas	2017-06-16	false	0
 3	y otro nota mas	2017-06-16	false	0
 1	caracoles	2017-06-16	true	0
 5	vamos a ver	2017-06-17	false	0
 6	una cracoles	2017-06-17	false	0
+2	otro mas	2017-06-16	false	1
+7	el super queda serca	2017-06-17	false	0
+8	mañana debo recargar el tlf a mi madre	2017-06-18	false	0
 \.
 
 
@@ -128,7 +130,7 @@ COPY notas (cod_nota, det_nota, fecha_crea, bool_eliminado, finalizado) FROM std
 -- Name: notas_cod_nota_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('notas_cod_nota_seq', 6, true);
+SELECT pg_catalog.setval('notas_cod_nota_seq', 8, true);
 
 
 --
